@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  # jupyterlab with pyspark
+  pyspark:
+    image: jupyter/pyspark-notebook:latest
+    command: /usr/local/bin/start-notebook.sh --NotebookApp.token='aiotlab'
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+    ports:
+      - "2001:8888"
+    volumes:
+      - ./src:/home/jovyan/work
+# CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root","--NotebookApp.token='aiotlab'"]
